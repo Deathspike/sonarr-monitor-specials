@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "args": ["."],
+      "name": "Launch",
+      "outputCapture": "std",
+      "request": "launch",
+      "type": "node"
+    }
+  ]
+}

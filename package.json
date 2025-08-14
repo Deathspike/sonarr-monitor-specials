@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "main": "src",
+  "type": "module",
+  "devDependencies": {
+    "prettier": "3.6.2"
+  },
+  "scripts": {
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
+  }
+}
