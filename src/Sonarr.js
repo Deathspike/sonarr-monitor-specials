@@ -21,21 +21,19 @@ export class Sonarr {
   async updateAsync() {
     const seriesApi = "/api/v3/series";
     for (const series of await this.#api.getAsync(seriesApi, Series)) {
-      if (this.#isTargetSeries(series)) {
-        const episodeApi = `/api/v3/episode?seriesId=${series.id}`;
-        const episodeMonitorApi = "/api/v3/episode/monitor";
-        for (const episode of await this.#api.getAsync(episodeApi, Episode)) {
-          if (await this.#needsUpdateAsync(episode)) {
-            const monitored = this.#shouldMonitor(series, episode);
-            const model = { episodeIds: [episode.id], monitored };
-            const response = await this.#api.putAsync(episodeMonitorApi, model);
-            if (response.ok) {
-              await this.#episodes.appendAsync(episode);
-              console.log(`Finished ${series} ${episode}`);
-            } else {
-              console.log(`Rejected ${series} ${episode}`);
-            }
-          }
+      if (!this.#isTargetSeries(series)) continue;
+      const episodeApi = `/api/v3/episode?seriesId=${series.id}`;
+      const episodeMonitorApi = "/api/v3/episode/monitor";
+      for (const episode of await this.#api.getAsync(episodeApi, Episode)) {
+        if (!(await this.#needsUpdateAsync(episode))) continue;
+        const monitored = this.#shouldMonitor(series, episode);
+        const model = { episodeIds: [episode.id], monitored };
+        const response = await this.#api.putAsync(episodeMonitorApi, model);
+        if (response.ok) {
+          await this.#episodes.appendAsync(episode);
+          console.log(`Finished ${series} ${episode}`);
+        } else {
+          console.log(`Rejected ${series} ${episode}`);
         }
       }
     }
