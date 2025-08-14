@@ -12,8 +12,8 @@ while (true) {
   try {
     console.log(`Checking at ${new Date().toISOString()}`);
     const api = new Api(baseUrl, apiKey);
-    const store = new Store(filePath, Episode);
-    await new Sonarr(api, store).updateAsync();
+    const episodes = new Store(filePath, Episode);
+    await new Sonarr(api, episodes).updateAsync();
   } catch (err) {
     console.error(err);
   } finally {
