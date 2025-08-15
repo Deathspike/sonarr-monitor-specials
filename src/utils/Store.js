@@ -52,9 +52,12 @@ export class Store {
         this.#entries.set(item.id, item);
       }
     } catch (err) {
-      if (err.code !== "ENOENT") throw err;
-      const directoryPath = path.dirname(this.#filePath);
-      await fs.promises.mkdir(directoryPath, { recursive: true });
+      if (err instanceof Error && "code" in err && err.code === "ENOENT") {
+        const directoryPath = path.dirname(this.#filePath);
+        await fs.promises.mkdir(directoryPath, { recursive: true });
+      } else {
+        throw err;
+      }
     }
   }
 }

@@ -4,9 +4,9 @@ import { Episode } from "./models/Episode.js";
 import { Sonarr } from "./Sonarr.js";
 import { Store } from "./utils/Store.js";
 
-const apiKey = process.env.API_KEY || "";
-const baseUrl = process.env.BASE_URL || "http://localhost:8989/";
-const filePath = process.env.FILE_PATH || "data/episodes.jsonl";
+const apiKey = process.env["API_KEY"] || "";
+const baseUrl = process.env["BASE_URL"] || "http://localhost:8989/";
+const filePath = process.env["FILE_PATH"] || "data/episodes.jsonl";
 
 while (true) {
   try {
