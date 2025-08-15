@@ -33,6 +33,7 @@ volumes:
 ```bash
 git clone https://github.com/Deathspike/sonarr-monitor-specials
 cd sonarr-monitor-specials
+npm install --omit=dev
 node .
 ```
 
