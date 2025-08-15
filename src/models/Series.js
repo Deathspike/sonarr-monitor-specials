@@ -4,7 +4,6 @@ export class Series {
     this.id = series.id;
     this.monitored = series.monitored;
     this.runtime = series.runtime;
-    this.seriesType = series.seriesType;
     this.title = series.title;
   }
 
@@ -18,8 +17,6 @@ export class Series {
   monitored;
   /** @type {number} */
   runtime;
-  /** @type {string} */
-  seriesType;
   /** @type {string} */
   title;
 }

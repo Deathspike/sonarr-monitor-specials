@@ -21,7 +21,7 @@ export class Sonarr {
   async updateAsync() {
     const seriesApi = "/api/v3/series";
     for (const series of await this.#api.getAsync(seriesApi, Series)) {
-      if (!this.#isTargetSeries(series)) continue;
+      if (!series.monitored) continue;
       const episodeApi = `/api/v3/episode?seriesId=${series.id}`;
       const episodeMonitorApi = "/api/v3/episode/monitor";
       for (const episode of await this.#api.getAsync(episodeApi, Episode)) {
@@ -37,11 +37,6 @@ export class Sonarr {
         }
       }
     }
-  }
-
-  /** @param {Series} series */
-  #isTargetSeries(series) {
-    return series.monitored && series.seriesType === "anime";
   }
 
   /** @param {Episode} episode */
