@@ -3,7 +3,7 @@ import * as os from "node:os";
 import * as path from "node:path";
 import * as readline from "node:readline";
 
-/** @template {{id: number}} T */
+/** @template {{ id: number }} T */
 export class Store {
   /** @type {Map<number, T>} */
   #entries;
@@ -11,13 +11,13 @@ export class Store {
   #filePath;
   /** @type {boolean} */
   #triedLoad;
-  /** @type {{new(source: T): T}} */
+  /** @type {{ new (source: T): T }} */
   #type;
 
   /**
    * @param {string} filePath
-   * @param {{new(source: T): T}} type
-   **/
+   * @param {{ new (source: T): T }} type
+   */
   constructor(filePath, type) {
     this.#entries = new Map();
     this.#filePath = filePath;

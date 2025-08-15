@@ -16,8 +16,8 @@ export class Api {
   /**
    * @template T
    * @param {string} relativeUrl
-   * @param {{new(source: T): T}} type
-   **/
+   * @param {{ new (source: T): T }} type
+   */
   async getAsync(relativeUrl, type) {
     const url = new URL(relativeUrl, this.#baseUrl);
     const response = await fetch(url, { headers: this.#headers });

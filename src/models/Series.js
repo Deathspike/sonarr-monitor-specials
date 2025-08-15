@@ -1,5 +1,5 @@
 export class Series {
-  /** @param {Series} series **/
+  /** @param {Series} series */
   constructor(series) {
     this.id = series.id;
     this.monitored = series.monitored;
