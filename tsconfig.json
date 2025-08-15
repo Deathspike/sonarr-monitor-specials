@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "module": "node20",
+    "skipLibCheck": true
+  },
+  "extends": [
+    "./tsconfig.config.check.json",
+    "./tsconfig.config.emit.json",
+    "./tsconfig.config.lang.json"
+  ],
+  "include": ["src"]
+}

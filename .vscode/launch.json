@@ -5,6 +5,7 @@
       "args": ["."],
       "name": "Launch",
       "outputCapture": "std",
+      "preLaunchTask": "tsc:watch",
       "request": "launch",
       "type": "node"
     }

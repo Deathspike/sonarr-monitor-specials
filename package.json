@@ -3,10 +3,14 @@
   "main": "src",
   "type": "module",
   "devDependencies": {
-    "prettier": "3.6.2"
+    "@types/node": "24.2.1",
+    "prettier": "3.6.2",
+    "typescript": "5.9.2"
   },
   "scripts": {
     "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write ."
+    "prettier:write": "prettier --write .",
+    "tsc:build": "tsc",
+    "tsc:watch": "tsc --watch"
   }
 }
