@@ -21,11 +21,11 @@ export class Api {
   async getAsync(relativeUrl, type) {
     const url = new URL(relativeUrl, this.#baseUrl);
     const response = await fetch(url, { headers: this.#headers });
-    const result = await response.json();
-    if (Array.isArray(result)) {
-      return result.map((item) => new type(item));
+    if (response.ok) {
+      const result = await response.json();
+      return this.#getArray(result, type);
     } else {
-      throw new Error();
+      throw new Error(`${response.statusText} (${response.status})`);
     }
   }
 
@@ -40,5 +40,18 @@ export class Api {
     const method = "PUT";
     const url = new URL(relativeUrl, this.#baseUrl);
     return await fetch(url, { body, headers, method });
+  }
+
+  /**
+   * @template T
+   * @param {unknown} result
+   * @param {{ new (source: T): T }} type
+   */
+  #getArray(result, type) {
+    if (Array.isArray(result)) {
+      return result.map((item) => new type(item));
+    } else {
+      return [];
+    }
   }
 }
