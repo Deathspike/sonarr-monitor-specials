@@ -4,7 +4,7 @@ A tool for [Sonarr](https://github.com/Sonarr/Sonarr) that periodically scans yo
 
 ## How
 
-This tool scans your Sonarr library on a schedule and checks each special's runtime. When it's at least half the length of a normal episode, it's marked as monitored so it appears as _missing_. From there, you choose whether to grab it or unmonitor it, and the tool will never change that choice. This simple heuristic surfaces OVAs, movies, and other story-relevant extras while skipping most of the fluff. Sure, it's not perfect and might still flag a few you don't care about, but it's a far better trade-off than Sonarr's default all-or-nothing approach.
+This tool scans your Sonarr library on a schedule and checks each special's runtime. When it's at least half the length of a normal episode, it's marked as monitored so it appears as _missing_. From there, you choose whether to grab it or unmonitor it, and this tool will never change that choice. This simple heuristic surfaces OVAs, movies, and other story-relevant extras while skipping most of the fluff. Sure, it's not perfect and might still flag a few you don't care about, but it's a far better trade-off than Sonarr's default all-or-nothing approach.
 
 ## Installation
 
@@ -39,11 +39,11 @@ node .
 
 ## Environment Variables
 
-| Name            | Default                  | Description                                                                                                                                                                                       |
-| --------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`API_KEY`**   | (empty)                  | **Required.** Your Sonarr API key, found under **Sonarr → Settings → General → Security**. Without this, the tool cannot access your library.                                                     |
-| **`BASE_URL`**  | `http://localhost:8989/` | The base URL of your Sonarr instance, including protocol and port. For Docker setups, this may be something like `http://sonarr:8989/`.                                                           |
-| **`FILE_PATH`** | `data/episodes.jsonl`    | Path to the file where the tool stores specials it has flagged. This prevents re-flagging the same special again. **Important:** If you remove or reset this file, specials may be flagged again. |
+| Name            | Default                  | Description                                                                                                                                                                                        |
+| --------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`API_KEY`**   | (empty)                  | **Required.** Your Sonarr API key, found under **Sonarr → Settings → General → Security**. Without it, this tool cannot access your library.                                                       |
+| **`BASE_URL`**  | `http://localhost:8989/` | The base URL of your Sonarr instance, including protocol and port. For Docker setups, this may be something like `http://sonarr:8989/`.                                                            |
+| **`FILE_PATH`** | `data/episodes.jsonl`    | Path to the file where this tool stores specials it has flagged. This prevents re-flagging the same special again. **Important:** If you remove or reset this file, specials may be flagged again. |
 
 ## Contributions
 
