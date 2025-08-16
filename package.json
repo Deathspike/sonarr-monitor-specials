@@ -16,7 +16,7 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "test": "npm run prettier:check && npm run tsc:build",
-    "tsc:build": "tsc",
-    "tsc:watch": "tsc --watch"
+    "tsc:build": "tsc --project jsconfig.json",
+    "tsc:watch": "tsc --project jsconfig.json --watch"
   }
 }

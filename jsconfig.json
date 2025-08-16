@@ -5,9 +5,9 @@
     "skipLibCheck": true
   },
   "extends": [
-    "./tsconfig.config.check.json",
-    "./tsconfig.config.emit.json",
-    "./tsconfig.config.lang.json"
+    "./jsconfig.config.check.json",
+    "./jsconfig.config.emit.json",
+    "./jsconfig.config.lang.json"
   ],
   "include": ["src"]
 }
