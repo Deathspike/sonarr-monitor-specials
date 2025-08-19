@@ -1,7 +1,7 @@
-import * as fs from "node:fs";
-import * as os from "node:os";
-import * as path from "node:path";
-import * as readline from "node:readline";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import readline from "node:readline";
 
 /** @template {{ id: number }} T */
 export class Store {

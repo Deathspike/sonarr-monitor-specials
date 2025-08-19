@@ -1,4 +1,4 @@
-import * as process from "node:process";
+import process from "node:process";
 import { Api } from "./utils/Api.js";
 import { Episode } from "./models/Episode.js";
 import { Sonarr } from "./Sonarr.js";
