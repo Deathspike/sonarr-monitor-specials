@@ -1,5 +1,4 @@
-FROM alpine
-RUN apk add --no-cache nodejs npm
+FROM node:22-alpine
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY src/ src/

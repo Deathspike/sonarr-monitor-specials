@@ -1,13 +1,8 @@
 {
-  "compilerOptions": {
-    "checkJs": true,
-    "module": "node20",
-    "skipLibCheck": true
-  },
   "extends": [
     "./jsconfig.config.check.json",
-    "./jsconfig.config.emit.json",
-    "./jsconfig.config.lang.json"
+    "./jsconfig.config.lang.json",
+    "./jsconfig.config.src.json"
   ],
   "include": ["src"]
 }

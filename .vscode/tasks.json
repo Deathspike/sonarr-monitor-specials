@@ -3,11 +3,14 @@
   "tasks": [
     {
       "command": "npm run tsc:watch",
-      "group": { "isDefault": true, "kind": "build" },
       "isBackground": true,
       "label": "tsc:watch",
+      "type": "shell",
       "problemMatcher": ["$tsc-watch"],
-      "type": "shell"
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      }
     }
   ]
 }
