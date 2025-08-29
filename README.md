@@ -70,12 +70,12 @@ node bin/cli.js --api-key=your-api-key --base-url=http://localhost:8989/
 
 ## Configuration
 
-| CLI             | ENV             | Default                  | Description                                                                                                                                                                                                 |
-| --------------- | --------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **--api-key**   | **`API_KEY`**   | (empty)                  | **Required.** Your Sonarr API key, found under **Sonarr → Settings → General → Security**. Without it, this tool cannot access your library.                                                                |
-| **--base-url**  | **`BASE_URL`**  | `http://localhost:8989/` | The base URL of your Sonarr instance, including protocol and port. For Docker setups, this may be something like `http://sonarr:8989/`.                                                                     |
-| **--file-path** | **`FILE_PATH`** | `data/episodes.jsonl`    | Path to the file where this tool stores specials it has flagged. This prevents re-flagging the same special again. **Important:** If you remove or reset this file, specials may be flagged again.          |
-| **--interval**  | **`INTERVAL`**  | `0` or `86400000`        | Interval between runs, in milliseconds. A value of `0` runs once and exits (default for CLI). Any positive value repeats after that many milliseconds, with Docker defaulting to `86400000` (once per day). |
+| CLI               | ENV             | Default                  | Description                                                                                                                                                                                                 |
+| ----------------- | --------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`--api-key`**   | **`API_KEY`**   | (empty)                  | **Required.** Your Sonarr API key, found under **Sonarr → Settings → General → Security**. Without it, this tool cannot access your library.                                                                |
+| **`--base-url`**  | **`BASE_URL`**  | `http://localhost:8989/` | The base URL of your Sonarr instance, including protocol and port. For Docker setups, this may be something like `http://sonarr:8989/`.                                                                     |
+| **`--file-path`** | **`FILE_PATH`** | `data/episodes.jsonl`    | Path to the file where this tool stores specials it has flagged. This prevents re-flagging the same special again. **Important:** If you remove or reset this file, specials may be flagged again.          |
+| **`--interval`**  | **`INTERVAL`**  | `0` or `86400000`        | Interval between runs, in milliseconds. A value of `0` runs once and exits (default for CLI). Any positive value repeats after that many milliseconds, with Docker defaulting to `86400000` (once per day). |
 
 ## Contributions
 
