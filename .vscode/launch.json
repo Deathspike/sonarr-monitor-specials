@@ -7,7 +7,7 @@
       "preLaunchTask": "tsc:watch",
       "request": "launch",
       "type": "node",
-      "args": ["."]
+      "args": ["bin/cli.js"]
     }
   ]
 }

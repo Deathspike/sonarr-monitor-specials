@@ -1,7 +1,10 @@
 {
   "main": "src",
-  "private": true,
+  "repository": "https://github.com/Deathspike/sonarr-monitor-specials",
   "type": "module",
+  "bin": {
+    "sonarr-monitor-specials": "bin/cli.js"
+  },
   "devDependencies": {
     "@types/node": "24.2.1",
     "prettier": "3.6.2",

@@ -1,6 +1,6 @@
 name: test
 jobs:
-  test:
+  npm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
