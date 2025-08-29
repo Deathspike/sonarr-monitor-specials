@@ -6,6 +6,20 @@ A tool for [Sonarr](https://github.com/Sonarr/Sonarr) that periodically scans yo
 
 This tool scans your Sonarr library on a schedule and checks each special's runtime. When it's at least half the length of a normal episode, it's marked as monitored so it appears as _missing_. From there, you choose whether to grab it or unmonitor it, and this tool will never change that choice. This simple heuristic surfaces OVAs, movies, and other story-relevant extras while skipping most of the fluff. Sure, it's not perfect and might still flag a few you don't care about, but it's a far better trade-off than Sonarr's default all-or-nothing approach.
 
+## Quick Start
+
+Run with **docker**:
+
+```bash
+docker run -e API_KEY=your-api-key -e BASE_URL=http://sonarr:8989/ deathspike/sonarr-monitor-specials
+```
+
+Or with **npm**:
+
+```bash
+npx sonarr-monitor-specials --api-key=your-api-key --base-url=http://localhost:8989/
+```
+
 ## Installation
 
 ### Docker
@@ -28,22 +42,40 @@ volumes:
     name: sonarr.monitor.specials.data
 ```
 
-### Node.js
+### NPM
+
+```bash
+npm install -g sonarr-monitor-specials
+```
+
+Run with:
+
+```bash
+sonarr-monitor-specials --api-key=your-api-key --base-url=http://localhost:8989/
+```
+
+### Source
 
 ```bash
 git clone https://github.com/Deathspike/sonarr-monitor-specials
 cd sonarr-monitor-specials
 npm install --omit=dev
-node .
 ```
 
-## Environment Variables
+Run with:
 
-| Name            | Default                  | Description                                                                                                                                                                                        |
-| --------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`API_KEY`**   | (empty)                  | **Required.** Your Sonarr API key, found under **Sonarr → Settings → General → Security**. Without it, this tool cannot access your library.                                                       |
-| **`BASE_URL`**  | `http://localhost:8989/` | The base URL of your Sonarr instance, including protocol and port. For Docker setups, this may be something like `http://sonarr:8989/`.                                                            |
-| **`FILE_PATH`** | `data/episodes.jsonl`    | Path to the file where this tool stores specials it has flagged. This prevents re-flagging the same special again. **Important:** If you remove or reset this file, specials may be flagged again. |
+```bash
+node bin/cli.js --api-key=your-api-key --base-url=http://localhost:8989/
+```
+
+## Configuration
+
+| CLI             | ENV             | Default                  | Description                                                                                                                                                                                                 |
+| --------------- | --------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **--api-key**   | **`API_KEY`**   | (empty)                  | **Required.** Your Sonarr API key, found under **Sonarr → Settings → General → Security**. Without it, this tool cannot access your library.                                                                |
+| **--base-url**  | **`BASE_URL`**  | `http://localhost:8989/` | The base URL of your Sonarr instance, including protocol and port. For Docker setups, this may be something like `http://sonarr:8989/`.                                                                     |
+| **--file-path** | **`FILE_PATH`** | `data/episodes.jsonl`    | Path to the file where this tool stores specials it has flagged. This prevents re-flagging the same special again. **Important:** If you remove or reset this file, specials may be flagged again.          |
+| **--interval**  | **`INTERVAL`**  | `0` or `86400000`        | Interval between runs, in milliseconds. A value of `0` runs once and exits (default for CLI). Any positive value repeats after that many milliseconds, with Docker defaulting to `86400000` (once per day). |
 
 ## Contributions
 
