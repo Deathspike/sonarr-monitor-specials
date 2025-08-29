@@ -1,5 +1,6 @@
 {
   "main": "src",
+  "name": "sonarr-monitor-specials",
   "repository": "https://github.com/Deathspike/sonarr-monitor-specials",
   "type": "module",
   "bin": {
