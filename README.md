@@ -1,10 +1,6 @@
 # sonarr-monitor-specials
 
-A tool for [Sonarr](https://github.com/Sonarr/Sonarr) that periodically scans your library and **monitors "interesting" specials** so they show up as _missing_. By default, Sonarr's all-or-nothing approach means either monitoring every special and getting buried in fluff, or monitoring none and missing OVAs, movies, and other story-relevant extras. This tool takes the middle ground, monitoring the ones likely worth your time so you can choose to grab them or unmonitor them.
-
-## How
-
-This tool scans your Sonarr library on a schedule and checks each special's runtime. When it's at least half the length of a normal episode, it's marked as monitored so it appears as _missing_. From there, you choose whether to grab it or unmonitor it, and this tool will never change that choice. This simple heuristic surfaces OVAs, movies, and other story-relevant extras while skipping most of the fluff. Sure, it's not perfect and might still flag a few you don't care about, but it's a far better trade-off than Sonarr's default all-or-nothing approach.
+A tool for [Sonarr](https://github.com/Sonarr/Sonarr) that periodically scans your library and **monitors "interesting" specials** so they show up as _missing_. By default, Sonarr's all-or-nothing approach means either monitoring every special and getting buried in fluff, or monitoring none and missing OVAs, movies, and other story-relevant extras. This tool takes the middle ground by monitoring specials that run at least half the length of a normal episode. Sure, it's not perfect and might still monitor a few you don't care about, but it's a far better trade-off than Sonarr's defaults.
 
 ## Quick Start
 
@@ -14,7 +10,7 @@ Run with **docker**:
 docker run -e API_KEY=your-api-key -e BASE_URL=http://sonarr:8989/ deathspike/sonarr-monitor-specials
 ```
 
-Or with **npm**:
+Or run with **npm (using npx)**:
 
 ```bash
 npx sonarr-monitor-specials --api-key=your-api-key --base-url=http://localhost:8989/
@@ -22,7 +18,9 @@ npx sonarr-monitor-specials --api-key=your-api-key --base-url=http://localhost:8
 
 ## Installation
 
-### Docker
+The _Quick Start_ commands are for one-off runs to quickly try the tool, while the options below are intended for regular use. You can set up a persistent environment with **Docker Compose**, install the CLI globally with **npm**, or clone **from source** if you want full control or plan to contribute.
+
+### Docker Compose
 
 ```yaml
 services:
@@ -42,33 +40,39 @@ volumes:
     name: sonarr.monitor.specials.data
 ```
 
-### NPM
+### npm
+
+Install globally with **npm**:
 
 ```bash
 npm install -g sonarr-monitor-specials
 ```
 
-Run with:
+Then run:
 
 ```bash
 sonarr-monitor-specials --api-key=your-api-key --base-url=http://localhost:8989/
 ```
 
-### Source
+### From Source
+
+Install from source with **git** and **npm**:
 
 ```bash
 git clone https://github.com/Deathspike/sonarr-monitor-specials
 cd sonarr-monitor-specials
-npm install --omit=dev
+npm install
 ```
 
-Run with:
+Then run with **node**:
 
 ```bash
 node bin/cli.js --api-key=your-api-key --base-url=http://localhost:8989/
 ```
 
 ## Configuration
+
+You can configure this tool either with CLI options or with environment variables. CLI options are typically used when running from the command line, while environment variables are more convenient in Docker. If you provide both, CLI options take precedence. If neither is set, the tool falls back to the default values shown in the table below.
 
 | CLI               | ENV             | Default                  | Description                                                                                                                                                                                                 |
 | ----------------- | --------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
