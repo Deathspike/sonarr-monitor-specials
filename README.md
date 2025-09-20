@@ -1,6 +1,6 @@
 # sonarr-monitor-specials
 
-A tool for [Sonarr](https://github.com/Sonarr/Sonarr) that periodically scans your library and **monitors "interesting" specials** so they show up as _missing_. By default, Sonarr's all-or-nothing approach means either monitoring every special and getting buried in fluff, or monitoring none and missing OVAs, movies, and other story-relevant extras. This tool takes the middle ground by monitoring specials that run at least half the length of a normal episode. Sure, it's not perfect and might still monitor a few you don't care about, but it's a far better trade-off than Sonarr's defaults.
+A CLI tool for [Sonarr](https://github.com/Sonarr/Sonarr) that periodically scans your library and **monitors "interesting" specials** so they show up as _missing_. By default, Sonarr's all-or-nothing approach means either monitoring every special and getting buried in fluff, or monitoring none and missing OVAs, movies, and other story-relevant extras. This tool takes the middle ground by monitoring specials that run at least half the length of a normal episode. Sure, it's not perfect and might still monitor a few you don't care about, but it's a far better trade-off than Sonarr's defaults.
 
 ## Quick Start
 
