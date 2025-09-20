@@ -1,5 +1,4 @@
 {
-  "main": "src",
   "name": "sonarr-monitor-specials",
   "repository": "https://github.com/Deathspike/sonarr-monitor-specials",
   "type": "module",
@@ -17,6 +16,7 @@
     "npm": ">= 10.0.0"
   },
   "scripts": {
+    "prepack": "tsc index.js --allowJs --declaration --emitDeclarationOnly --removeComments --strict",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "test": "npm run prettier:check && npm run tsc:build",
