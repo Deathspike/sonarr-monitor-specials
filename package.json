@@ -1,4 +1,5 @@
 {
+  "main": "index.js",
   "name": "sonarr-monitor-specials",
   "repository": "https://github.com/Deathspike/sonarr-monitor-specials",
   "type": "module",
@@ -7,6 +8,8 @@
   },
   "devDependencies": {
     "@types/node": "24.2.1",
+    "eslint": "9.37.0",
+    "eslint-config-porcupine": "0.1.1",
     "prettier": "3.6.2",
     "prettier-plugin-jsdoc": "1.3.3",
     "typescript": "5.9.2"
@@ -16,10 +19,11 @@
     "npm": ">= 10.0.0"
   },
   "scripts": {
-    "prepack": "tsc index.js --allowJs --declaration --emitDeclarationOnly --removeComments --strict",
+    "eslint": "eslint --max-warnings 0",
+    "prepack": "tsc index.js --allowJs --declaration --emitDeclarationOnly --removeComments --strict --skipLibCheck",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "test": "npm run prettier:check && npm run tsc:build",
+    "test": "npm run prettier:check && npm run tsc:build && npm run eslint",
     "tsc:build": "tsc --project jsconfig.json",
     "tsc:watch": "tsc --project jsconfig.json --watch"
   }
