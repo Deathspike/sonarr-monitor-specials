@@ -48,10 +48,6 @@ export class Api {
    * @param {{ new (source: T): T }} type
    */
   #getArray(result, type) {
-    if (Array.isArray(result)) {
-      return result.map((item) => new type(item));
-    } else {
-      return [];
-    }
+    return Array.isArray(result) ? result.map((item) => new type(item)) : [];
   }
 }

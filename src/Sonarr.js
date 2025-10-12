@@ -1,6 +1,6 @@
-import { Api } from "./utils/Api.js";
 import { Episode } from "./models/Episode.js";
 import { Series } from "./models/Series.js";
+import { Api } from "./utils/Api.js";
 import { Store } from "./utils/Store.js";
 
 export class Sonarr {

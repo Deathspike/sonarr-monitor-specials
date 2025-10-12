@@ -1,4 +1,13 @@
 export class Series {
+  /** @type {number} */
+  id;
+  /** @type {boolean} */
+  monitored;
+  /** @type {number} */
+  runtime;
+  /** @type {string} */
+  title;
+
   /** @param {Series} series */
   constructor(series) {
     this.id = series.id;
@@ -10,13 +19,4 @@ export class Series {
   toString() {
     return `${this.title} (${this.id})`;
   }
-
-  /** @type {number} */
-  id;
-  /** @type {boolean} */
-  monitored;
-  /** @type {number} */
-  runtime;
-  /** @type {string} */
-  title;
 }

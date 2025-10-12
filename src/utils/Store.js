@@ -51,13 +51,20 @@ export class Store {
         const item = new this.#type(json);
         this.#entries.set(item.id, item);
       }
-    } catch (err) {
-      if (err instanceof Error && "code" in err && err.code === "ENOENT") {
+    } catch (error) {
+      if (getErrorCode(error) === "ENOENT") {
         const directoryPath = path.dirname(this.#filePath);
         await fs.promises.mkdir(directoryPath, { recursive: true });
       } else {
-        throw err;
+        throw error;
       }
     }
   }
+}
+
+/** @param {unknown} error */
+function getErrorCode(error) {
+  return error instanceof Error && "code" in error
+    ? String(error.code)
+    : undefined;
 }

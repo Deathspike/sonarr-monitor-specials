@@ -1,4 +1,15 @@
 export class Episode {
+  /** @type {number} */
+  episodeNumber;
+  /** @type {number} */
+  id;
+  /** @type {number} */
+  runtime;
+  /** @type {number} */
+  seasonNumber;
+  /** @type {number} */
+  tvdbId;
+
   /** @param {Episode} episode */
   constructor(episode) {
     this.episodeNumber = episode.episodeNumber;
@@ -24,15 +35,4 @@ export class Episode {
     const seasonName = `${this.seasonNumber}`.padStart(2, "0");
     return `S${seasonName}E${episodeName} (${this.id})`;
   }
-
-  /** @type {number} */
-  episodeNumber;
-  /** @type {number} */
-  id;
-  /** @type {number} */
-  runtime;
-  /** @type {number} */
-  seasonNumber;
-  /** @type {number} */
-  tvdbId;
 }
