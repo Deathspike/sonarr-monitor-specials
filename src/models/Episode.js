@@ -1,13 +1,13 @@
 export class Episode {
-  /** @type {number} */
+  /** @readonly @type {number} */
   episodeNumber;
-  /** @type {number} */
+  /** @readonly @type {number} */
   id;
-  /** @type {number} */
+  /** @readonly @type {number} */
   runtime;
-  /** @type {number} */
+  /** @readonly @type {number} */
   seasonNumber;
-  /** @type {number} */
+  /** @readonly @type {number} */
   tvdbId;
 
   /** @param {Episode} episode */

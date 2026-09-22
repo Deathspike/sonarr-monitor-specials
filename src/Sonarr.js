@@ -4,9 +4,9 @@ import { Api } from "./utils/Api.js";
 import { Store } from "./utils/Store.js";
 
 export class Sonarr {
-  /** @type {Api} */
+  /** @readonly @type {Api} */
   #api;
-  /** @type {Store<Episode>} */
+  /** @readonly @type {Store<Episode>} */
   #episodes;
 
   /**

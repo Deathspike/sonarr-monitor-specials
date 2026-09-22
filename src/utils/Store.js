@@ -5,13 +5,13 @@ import readline from "node:readline";
 
 /** @template {{ id: number }} T */
 export class Store {
-  /** @type {Map<number, T>} */
+  /** @readonly @type {Map<number, T>} */
   #entries;
-  /** @type {string} */
+  /** @readonly @type {string} */
   #filePath;
   /** @type {boolean} */
   #triedLoad;
-  /** @type {{ new (source: T): T }} */
+  /** @readonly @type {{ new (source: T): T }} */
   #type;
 
   /**

@@ -1,11 +1,11 @@
 export class Series {
-  /** @type {number} */
+  /** @readonly @type {number} */
   id;
-  /** @type {boolean} */
+  /** @readonly @type {boolean} */
   monitored;
-  /** @type {number} */
+  /** @readonly @type {number} */
   runtime;
-  /** @type {string} */
+  /** @readonly @type {string} */
   title;
 
   /** @param {Series} series */

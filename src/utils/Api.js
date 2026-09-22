@@ -1,7 +1,7 @@
 export class Api {
-  /** @type {string} */
+  /** @readonly @type {string} */
   #baseUrl;
-  /** @type {Record<string, string>} */
+  /** @readonly @type {Record<string, string>} */
   #headers;
 
   /**
