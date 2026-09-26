@@ -31,8 +31,8 @@ export class Episode {
   }
 
   toString() {
-    const episodeName = `${this.episodeNumber}`.padStart(2, "0");
-    const seasonName = `${this.seasonNumber}`.padStart(2, "0");
-    return `S${seasonName}E${episodeName} (${this.id})`;
+    const episodeName = this.episodeNumber.toString().padStart(2, "0");
+    const seasonName = this.seasonNumber.toString().padStart(2, "0");
+    return `S${seasonName}E${episodeName} (${this.id.toString()})`;
   }
 }

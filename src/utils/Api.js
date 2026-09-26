@@ -1,7 +1,7 @@
 export class Api {
   /** @readonly @type {string} */
   #baseUrl;
-  /** @readonly @type {Record<string, string>} */
+  /** @readonly @type {Record<PropertyKey, string>} */
   #headers;
 
   /**
@@ -25,7 +25,7 @@ export class Api {
       const result = await response.json();
       return this.#getArray(result, type);
     } else {
-      throw new Error(`${response.statusText} (${response.status})`);
+      throw new Error(`${response.statusText} (${response.status.toString()})`);
     }
   }
 

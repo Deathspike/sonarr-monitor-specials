@@ -17,6 +17,6 @@ export class Series {
   }
 
   toString() {
-    return `${this.title} (${this.id})`;
+    return `${this.title} (${this.id.toString()})`;
   }
 }

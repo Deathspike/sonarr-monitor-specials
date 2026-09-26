@@ -22,7 +22,7 @@ export class Sonarr {
     const seriesApi = "/api/v3/series";
     for (const series of await this.#api.getAsync(seriesApi, Series)) {
       if (!series.monitored) continue;
-      const episodeApi = `/api/v3/episode?seriesId=${series.id}`;
+      const episodeApi = `/api/v3/episode?seriesId=${series.id.toString()}`;
       const episodeMonitorApi = "/api/v3/episode/monitor";
       for (const episode of await this.#api.getAsync(episodeApi, Episode)) {
         if (!(await this.#needsUpdateAsync(episode))) continue;
@@ -31,9 +31,9 @@ export class Sonarr {
         const response = await this.#api.putAsync(episodeMonitorApi, model);
         if (response.ok) {
           await this.#episodes.appendAsync(episode);
-          console.log(`Finished ${series} ${episode}`);
+          console.log(`Finished ${series.toString()} ${episode.toString()}`);
         } else {
-          console.log(`Rejected ${series} ${episode}`);
+          console.log(`Rejected ${series.toString()} ${episode.toString()}`);
         }
       }
     }
@@ -51,8 +51,10 @@ export class Sonarr {
    * @param {Episode} episode
    */
   #shouldMonitor(series, episode) {
-    if (!episode.runtime) return true;
-    if (!series.runtime) return true;
-    return episode.runtime >= series.runtime / 2;
+    return (
+      !episode.runtime ||
+      !series.runtime ||
+      episode.runtime >= series.runtime / 2
+    );
   }
 }

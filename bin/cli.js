@@ -7,12 +7,12 @@ import { mainAsync } from "../src/index.js";
 function getArgument(name) {
   for (let index = 2; index < process.argv.length; index++) {
     const argument = process.argv[index];
-    if (!argument) {
-      continue;
-    } else if (argument === `--${name}` && process.argv[index + 1]) {
-      return process.argv[index + 1];
-    } else if (argument.startsWith(`--${name}=`)) {
-      return argument.slice(name.length + 3);
+    if (argument) {
+      if (argument === `--${name}` && process.argv[index + 1]) {
+        return process.argv[index + 1];
+      } else if (argument.startsWith(`--${name}=`)) {
+        return argument.slice(name.length + 3);
+      }
     }
   }
   return;
