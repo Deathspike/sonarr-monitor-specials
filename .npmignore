@@ -1,6 +1,7 @@
 .github/
 .prettierrc
 .vscode/
+docker.js
 Dockerfile
 eslint.*
 jsconfig.*

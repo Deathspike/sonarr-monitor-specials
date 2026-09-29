@@ -5,22 +5,21 @@ import { mainAsync } from "../src/index.js";
 
 /** @param {string} name */
 function getArgument(name) {
-  for (let index = 2; index < process.argv.length; index++) {
-    const argument = process.argv[index];
-    if (argument) {
-      if (argument === `--${name}` && process.argv[index + 1]) {
-        return process.argv[index + 1];
-      } else if (argument.startsWith(`--${name}=`)) {
-        return argument.slice(name.length + 3);
-      }
+  const args = process.argv.slice(2);
+  const option = `--${name}`;
+  for (const [index, parameter] of args.entries()) {
+    if (parameter === option && args[index + 1]) {
+      return args[index + 1];
+    } else if (parameter.startsWith(`${option}=`)) {
+      return parameter.slice(option.length + 1);
     }
   }
   return;
 }
 
 await mainAsync(
-  getArgument("api-key") ?? process.env["API_KEY"],
-  getArgument("base-url") ?? process.env["BASE_URL"],
-  getArgument("file-path") ?? process.env["FILE_PATH"],
-  Number.parseInt(getArgument("interval") ?? process.env["INTERVAL"] ?? "0"),
+  getArgument("api-key"),
+  getArgument("base-url"),
+  getArgument("file-path"),
+  Number.parseInt(getArgument("interval") ?? "0") || 0,
 );
