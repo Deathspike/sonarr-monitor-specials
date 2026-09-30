@@ -7,7 +7,7 @@
     "sonarr-monitor-specials": "./bin/cli.js"
   },
   "devDependencies": {
-    "@types/node": "24.13.6",
+    "@types/node": "26.6.3",
     "eslint": "10.11.0",
     "eslint-config-porcupine": "0.3.1",
     "prettier": "3.9.9",
